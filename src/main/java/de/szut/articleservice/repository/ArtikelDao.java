@@ -15,21 +15,24 @@ public class ArtikelDao {
 
     }
     public void insert(Artikel artikel) {
+        artikelListe.put(artikel.getId(),artikel);
 
     }
     public Artikel findbyId(long id) {
-        return null;
+        return artikelListe.get(id);
     }
 
     public List<Artikel> findAll() {
-        return null;
+        return artikelListe.values().stream().toList();
     }
 
     public void update(Artikel artikel) {
+        artikelListe.replace(artikel.getId(),artikel);
 
     }
 
     public void delete(long id) {
+        artikelListe.remove(id);
 
     }
 }
