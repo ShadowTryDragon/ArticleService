@@ -15,7 +15,10 @@ public class ArtikelDao {
     }
     public void initHashMap() {
         artikelListe = new HashMap<>();
-        insert(new Artikel(1,"Marques", "Ein Spiezelles Objekt",80.99,99.99));
+        insert(new Artikel(1,"Deine Mudda", "Ein Spiezelles Objekt, welches hamlos ist",80.99,99.99));
+        insert(new Artikel(2,"Dein Vadda", "Ein Spiezelles Objekt, welchs dich verfluchen wird wenn du deine Mudda anfässt",50.99,79.99));
+        insert(new Artikel(3,"Deine Schwesta", "Ein Spiezelles Objekt, welchs potentiell deine Stepsis sein kann",180.99,199.99));
+        insert(new Artikel(4,"Dein Bruda", "Ein Spiezelles Objekt, welches dich enweder Beschützt oder Schlägt",80.99,99.99));
     }
     public void insert(Artikel artikel) {
         artikelListe.put(artikel.getId(),artikel);
