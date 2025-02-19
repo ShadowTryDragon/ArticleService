@@ -16,7 +16,7 @@ public class ArtikelService {
 
     public Artikel add(Artikel artikel) {
         artikelDao.insert(artikel);
-        return artikelDao.findbyId(artikel.getId());
+        return artikelDao.findById(artikel.getId());
     }
 
     public Artikel update(Artikel artikel) {
@@ -24,11 +24,11 @@ public class ArtikelService {
     }
 
     public void delete(long id){
-artikelDao.delete(id);
+       artikelDao.delete(id);
     }
 
     public Artikel read(long id) {
-        return artikelDao.findbyId(id);
+        return artikelDao.findById(id);
     }
 
     public List<Artikel> readAll() {
