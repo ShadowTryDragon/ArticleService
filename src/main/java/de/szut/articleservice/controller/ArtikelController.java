@@ -9,40 +9,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/myappdata/articles")
 public class ArtikelController {
 
     private ArtikelService artikelService;
-
     public ArtikelController() {
         artikelService = new ArtikelService();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<List<Artikel>> getArtikel(@PathVariable long id) {
+    @GetMapping
+    public ResponseEntity<List<Artikel>> getArtikels() {
         List<Artikel> artikelList = artikelService.readAll();
         return  new ResponseEntity<>(artikelList, HttpStatus.OK);
-
+    }
+    @GetMapping(value ="/{id}")
+    public ResponseEntity<Artikel> getArtikel(@PathVariable long id) {
+        Artikel artikel = artikelService.read(id);
+        return  new ResponseEntity<>(artikel, HttpStatus.OK);
     }
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Artikel> delete(@PathVariable long id) {
-  artikelService.delete(id);
+        artikelService.delete(id);
         return  new ResponseEntity(HttpStatus.OK);
-
     }
     @PostMapping
     public ResponseEntity<Artikel> add(@RequestBody Artikel request) {
         Artikel artikel = artikelService.add(request);
         return  new ResponseEntity<>(artikel, HttpStatus.OK);
-
     }
     @PutMapping
     public ResponseEntity<?> update(@RequestBody Artikel request) {
         artikelService.update(request);
         return  new ResponseEntity(HttpStatus.OK);
-
     }
-
-
-
 }
